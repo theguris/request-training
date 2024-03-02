@@ -4,9 +4,7 @@
 
 // DOC:
 // (ok) - https://pokeapi.co/api/v2/pokemon/
-// https://alexwohlbruck.github.io/cat-facts/
-// https://github.com/andyklimczak/TheReportOfTheWeek-API
-// https://www.giantbomb.com/api/documentation/
+// (ok) - https://alexwohlbruck.github.io/cat-facts/
 // https://rickandmortyapi.com/
 
 (async () => {
@@ -37,6 +35,18 @@
 	catFacts.textContent = textCat;
 
 	listData.appendChild(catFacts);
+
+	// -------------------------
+
+	const rickAndMorty = document.createElement("li");
+
+	const responseRAM = await axios.get("https://rickandmortyapi.com/api/character");
+
+	const rickAndMortyInfo = responseRAM.data.results[0].name;
+	
+	rickAndMorty.textContent = rickAndMortyInfo;
+
+	listData.appendChild(rickAndMorty)
 })();
 
 const arrowFunction = () => {};
