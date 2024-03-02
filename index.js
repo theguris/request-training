@@ -46,19 +46,37 @@
 	
 	rickAndMorty.textContent = rickAndMortyInfo;
 
-	listData.appendChild(rickAndMorty)
+	listData.appendChild(rickAndMorty);
 
 	// -------------------------
 
 	const dogs = document.createElement("li");
-	const imageDog = document.createElement("img")
+
+	const imageDog = document.createElement("img");
 
 	const responseDogs = await axios.get("https://dog.ceo/api/breeds/image/random");
 
 	const dogsInfo = responseDogs.data.message;
-	imageDog.setAttribute("src", dogsInfo)
 
-	listData.appendChild(imageDog)
+	imageDog.setAttribute("src", dogsInfo);
+
+	listData.appendChild(imageDog);
+
+	// -------------------------
+
+	const jokes = document.createElement("li");
+	const answer = document.createElement("span");
+
+	const responseJokes = await axios.get("https://official-joke-api.appspot.com/random_joke");
+
+	const jokesQuestion = responseJokes.data.setup;
+	const jokesAnswer = responseJokes.data.punchline;
+
+	jokes.textContent = jokesQuestion;
+	answer.textContent = jokesAnswer;
+
+	listData.appendChild(jokes);
+	listData.appendChild(answer);
 })();
 
 const arrowFunction = () => {};
