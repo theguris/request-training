@@ -1,47 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>Request training</title>
+    <title>Request training</title>
 
-		<style>
-			/* Estilo para centralizar a lista */
-			body {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				height: 100vh;
-				margin: 0;
-				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-			}
+    <style>
+      /* Estilo para centralizar a lista */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-			/* Estilo para a lista */
-			#name-list {
-				list-style-type: none;
-				padding: 0;
-				text-align: center;
-			}
+      /* Estilo para a lista */
+      #name-list {
+        list-style-type: none;
+        padding: 0;
+        text-align: center;
+      }
 
-			/* Estilo para cada item da lista */
-			li {
-				margin-bottom: 10px;
-				padding: 10px;
-				background-color: #f0f0f0;
-				border-radius: 5px;
-				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-				font-size: 18px;
-			}
-		</style>
+      /* Estilo para cada item da lista */
+      li {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        font-size: 18px;
+      }
 
-		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	</head>
-	<body>
-		<div>
-			<h1>Lista de Dados</h1>
-			<ul id="name-list"></ul>
-		</div>
-		<script src="./index.js"></script>
-	</body>
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 500px;
+      }
+
+      h1 {
+        margin: 10px auto;
+      }
+      img {
+        width: 100%;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>Lista de Dados</h1>
+      <ul id="name-list"></ul>
+    </div>
+    <script src="./index.js"></script>
+  </body>
 </html>
