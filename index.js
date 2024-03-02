@@ -27,6 +27,16 @@
 	listData.appendChild(pokemonName);
 
 	// -------------------------
+
+	const catFacts = document.createElement("li");
+
+	const responseCats = await axios.get("https://cat-fact.herokuapp.com/facts");
+
+	const textCat = responseCats.data[0].text;
+
+	catFacts.textContent = textCat;
+
+	listData.appendChild(catFacts);
 })();
 
 const arrowFunction = () => {};
