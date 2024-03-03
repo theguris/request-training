@@ -86,24 +86,24 @@
 
 	// -------------------------
 
-	const country = prompt("Qual cidade deseja ver o clima?");
+	// const country = prompt("Qual cidade deseja ver o clima?");
 
-	const weatherTemp = document.createElement("li");
-	weatherTemp.setAttribute("id", "li-temp")
-	const weatherRegion = document.createElement("p");
-	const imageWeather = document.createElement("img");
+	// const weatherTemp = document.createElement("li");
+	// weatherTemp.setAttribute("id", "li-temp")
+	// const weatherRegion = document.createElement("p");
+	// const imageWeather = document.createElement("img");
 
-	const responseWeather = await axios.get(`http://api.weatherapi.com/v1/current.json?key=f67742ca5b8e48b6bbc135200240303&q=${country}&aqi=no`);
+	// const responseWeather = await axios.get(`http://api.weatherapi.com/v1/current.json?key=f67742ca5b8e48b6bbc135200240303&q=${country}&aqi=no`);
 
-	const weatherIcon = responseWeather.data.current.condition.icon;
-	imageWeather.setAttribute("src", weatherIcon);
+	// const weatherIcon = responseWeather.data.current.condition.icon;
+	// imageWeather.setAttribute("src", weatherIcon);
 
-	weatherRegion.textContent = responseWeather.data.location.region;
-	weatherTemp.textContent = responseWeather.data.current.temp_c + "\u00B0";
+	// weatherRegion.textContent = responseWeather.data.location.region;
+	// weatherTemp.textContent = responseWeather.data.current.temp_c + "\u00B0";
 
-	listData.appendChild(weatherTemp);
-	weatherTemp.appendChild(imageWeather);
-	weatherTemp.appendChild(weatherRegion);
+	// listData.appendChild(weatherTemp);
+	// weatherTemp.appendChild(imageWeather);
+	// weatherTemp.appendChild(weatherRegion);
 
 	// -------------------------
 
@@ -135,8 +135,26 @@
 	disneyCharacter.appendChild(disneyImage);
 	disneyCharacter.appendChild(disneyFilms);
 
-	console.log(responseDisney.data.data)
+	// -------------------------
+	const randomNews = Math.floor(Math.random() * 99);
 
+	const newsTitle = document.createElement("li");
+	const newsImage = document.createElement("img");
+	const newsLink = document.createElement("span");
+	
+	const responseNews = await axios.get(`https://api.spaceflightnewsapi.net/v4/articles/${randomNews}/`);
+	
+	const imageNew = responseNews.data.image_url;
+	newsImage.setAttribute("src", imageNew);
+	newsTitle.textContent = responseNews.data.title;
+	newsLink.textContent = responseNews.data.url;
+
+	listData.appendChild(newsTitle);
+	newsTitle.appendChild(newsImage);
+	newsTitle.appendChild(newsLink);
+	
+	console.log(responseNews);
+	
 })();
 
 const arrowFunction = () => {};
