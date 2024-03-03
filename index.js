@@ -5,12 +5,12 @@
 // DOC:
 // (ok) - https://pokeapi.co/api/v2/pokemon/
 // (ok) - https://alexwohlbruck.github.io/cat-facts/
-// https://rickandmortyapi.com/
+// (ok) - https://rickandmortyapi.com/
 
 (async () => {
 	// Pegando a UL
 	const listData = document.getElementById("name-list");
-	const randomIndex = Math.floor(Math.random() * 20);
+	let randomIndex = Math.floor(Math.random() * 20);
 
 	// -------------------------
 
@@ -106,15 +106,37 @@
 	weatherTemp.appendChild(weatherRegion);
 
 	// -------------------------
+
 	const foodImage = document.createElement("img");
 
 	const responseFood = await axios.get(`https://foodish-api.com/api/`);
 
 	const imageFood = responseFood.data.image;
 	foodImage.setAttribute("src", imageFood);
-	console.log(responseFood);
 
 	listData.appendChild(foodImage)
+
+	// -------------------------
+
+	const randomDisney = Math.floor(Math.random() * 49)
+
+	const disneyCharacter = document.createElement("li")
+	const disneyFilms = document.createElement("span")
+	const disneyImage = document.createElement("img")
+
+	const responseDisney = await axios.get("https://api.disneyapi.dev/character")
+
+	disneyCharacter.textContent = responseDisney.data.data[randomDisney].name
+	const imageDisney = responseDisney.data.data[randomDisney].imageUrl
+	disneyImage.setAttribute("src", imageDisney)
+	disneyFilms.textContent = responseDisney.data.data[randomDisney].films[0]
+
+	listData.appendChild(disneyCharacter);
+	disneyCharacter.appendChild(disneyImage);
+	disneyCharacter.appendChild(disneyFilms);
+
+	console.log(responseDisney.data.data)
+
 })();
 
 const arrowFunction = () => {};
