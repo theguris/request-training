@@ -10,6 +10,7 @@
 (async () => {
 	// Pegando a UL
 	const listData = document.getElementById("name-list");
+	const randomIndex = Math.floor(Math.random() * 20);
 
 	// -------------------------
 
@@ -18,19 +19,20 @@
 	// Faco meu request e armazeno a resposta
 	const responsePokemon = await axios.get("https://pokeapi.co/api/v2/pokemon/");
 	// Armazeno a informacao que eu vou mostrar
-	const namePokemon = responsePokemon.data.results[16].name;
+	const namePokemon = responsePokemon.data.results[randomIndex].name;
 	// Adiciono essa informacao no LI da minha request
 	pokemonName.textContent = namePokemon;
 	// Adiciono a minha LI dentro da UL
 	listData.appendChild(pokemonName);
 
 	// -------------------------
+	const randomCat = Math.floor(Math.random() * 5);
 
 	const catFacts = document.createElement("li");
 
 	const responseCats = await axios.get("https://cat-fact.herokuapp.com/facts");
 
-	const textCat = responseCats.data[0].text;
+	const textCat = responseCats.data[randomCat].text;
 
 	catFacts.textContent = textCat;
 
@@ -39,18 +41,21 @@
 	// -------------------------
 
 	const rickAndMorty = document.createElement("li");
+	rickAndMorty.setAttribute("id", "RickAndMorty")
+	const rickAndMortyImg = document.createElement("img");
 
 	const responseRAM = await axios.get("https://rickandmortyapi.com/api/character");
 
-	const rickAndMortyInfo = responseRAM.data.results[0].name;
+	const rickAndMortyInfo = responseRAM.data.results[randomIndex].name;
+	const characterImage = responseRAM.data.results[randomIndex].image;
 	
+	rickAndMortyImg.setAttribute("src", characterImage)
 	rickAndMorty.textContent = rickAndMortyInfo;
 
 	listData.appendChild(rickAndMorty);
-
+	rickAndMorty.appendChild(rickAndMortyImg);
+	
 	// -------------------------
-
-	const dogs = document.createElement("li");
 
 	const imageDog = document.createElement("img");
 
@@ -65,7 +70,8 @@
 	// -------------------------
 
 	const jokes = document.createElement("li");
-	const answer = document.createElement("span");
+	jokes.setAttribute("id", "jokes")
+	const answer = document.createElement("p");
 
 	const responseJokes = await axios.get("https://official-joke-api.appspot.com/random_joke");
 
@@ -76,7 +82,29 @@
 	answer.textContent = jokesAnswer;
 
 	listData.appendChild(jokes);
-	listData.appendChild(answer);
+	jokes.appendChild(answer);
+
+	// -------------------------
+
+	const country = prompt("Qual cidade deseja ver o clima?");
+
+	const weatherTemp = document.createElement("li");
+	weatherTemp.setAttribute("id", "li-temp")
+	const weatherRegion = document.createElement("p");
+	const imageWeather = document.createElement("img");
+
+	const responseWeather = await axios.get(`http://api.weatherapi.com/v1/current.json?key=f67742ca5b8e48b6bbc135200240303&q=${country}&aqi=no`);
+
+	const weatherIcon = responseWeather.data.current.condition.icon;
+	imageWeather.setAttribute("src", weatherIcon);
+
+	weatherRegion.textContent = responseWeather.data.location.region;
+	weatherTemp.textContent = responseWeather.data.current.temp_c + "\u00B0";
+
+	listData.appendChild(weatherTemp);
+	weatherTemp.appendChild(imageWeather);
+	weatherTemp.appendChild(weatherRegion);
+
 })();
 
 const arrowFunction = () => {};
