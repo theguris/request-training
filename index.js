@@ -105,6 +105,16 @@
 	weatherTemp.appendChild(imageWeather);
 	weatherTemp.appendChild(weatherRegion);
 
+	// -------------------------
+	const foodImage = document.createElement("img");
+
+	const responseFood = await axios.get(`https://foodish-api.com/api/`);
+
+	const imageFood = responseFood.data.image;
+	foodImage.setAttribute("src", imageFood);
+	console.log(responseFood);
+
+	listData.appendChild(foodImage)
 })();
 
 const arrowFunction = () => {};
