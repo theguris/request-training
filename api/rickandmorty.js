@@ -1,4 +1,4 @@
-export async function rickAndMortyAPI (randomIndex, listData){
+export async function rickAndMortyAPI(randomIndex, listData) {
   const rickAndMorty = document.createElement("li");
   rickAndMorty.setAttribute("id", "RickAndMorty");
   const rickAndMortyImg = document.createElement("img");
