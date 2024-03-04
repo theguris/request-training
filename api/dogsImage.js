@@ -1,4 +1,4 @@
-export async function dogsRandomImages (listData){
+export async function dogsRandomImages(listData) {
   const imageDog = document.createElement("img");
 
   const responseDogs = await axios.get(

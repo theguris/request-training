@@ -1,4 +1,4 @@
-export async function weatherLocal (listData){
+export async function weatherLocal(listData) {
   const country = prompt("Qual cidade deseja ver o clima?");
 
   const weatherTemp = document.createElement("li");

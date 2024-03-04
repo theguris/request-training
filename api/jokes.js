@@ -1,4 +1,4 @@
-export async function randomJokes (listData){
+export async function randomJokes(listData) {
   const jokes = document.createElement("li");
   jokes.setAttribute("id", "jokes");
   const answer = document.createElement("p");

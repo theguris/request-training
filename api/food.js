@@ -1,4 +1,4 @@
-export async function foodImages (listData){
+export async function foodImages(listData) {
   const foodImage = document.createElement("img");
 
   const responseFood = await axios.get(`https://foodish-api.com/api/`);

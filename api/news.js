@@ -1,4 +1,4 @@
-export async function newsLetter (listData){
+export async function newsLetter(listData) {
   const randomNews = Math.floor(Math.random() * 99);
 
   const newsTitle = document.createElement("li");

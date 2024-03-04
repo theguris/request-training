@@ -1,4 +1,4 @@
-export async function catFacts(listData){
+export async function catFacts(listData) {
   const randomCat = Math.floor(Math.random() * 5);
 
   const catFacts = document.createElement("li");

@@ -1,4 +1,4 @@
-export async function disneyCharacters (listData){
+export async function disneyCharacters(listData) {
   const randomDisney = Math.floor(Math.random() * 49);
 
   const disneyCharacter = document.createElement("li");
