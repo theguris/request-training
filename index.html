@@ -12,9 +12,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
         margin: 0;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+        background-color: rgb(73, 73, 73);
       }
 
       /* Estilo para a lista */
@@ -26,7 +27,8 @@
 
       ul {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
       }
@@ -82,6 +84,11 @@
         height: 70px;
         width: 70px;
       }
+
+      #randomFacts {
+        font-size: 20px;
+        color: white;
+      }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -91,6 +98,6 @@
       <h1>Lista de Dados</h1>
       <ul id="name-list"></ul>
     </div>
-    <script src="./index.js"></script>
+    <script type="module" src="./index.js" defer></script>
   </body>
 </html>
